@@ -34,7 +34,7 @@ struct Video: Decodable {
     // JSON will be passed to init to map data the way we want
     init(from decoder: Decoder) throws {
         
-        // we get the container from the "item" and store it to  variable "container"
+        // we get the container from the "items" and store it to  variable "container"
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         // this looks for "snippet" container from JSON

@@ -7,8 +7,13 @@
 
 import Foundation
 
+protocol ModelDelegate {
+    func videosFetched(_ videos: [Video])
+}
 
-class Model {
+class Model{
+    
+    var delegate:ModelDelegate?
     
     func getVideos(){
         // create URL object
@@ -37,8 +42,13 @@ class Model {
                 decoder.dateDecodingStrategy = .iso8601
                 
                 let response = try decoder.decode(Response.self, from: data!)
-                
-                dump(response)
+                 
+                if response != nil {
+                    // call the "videoFetched" methods of the delegate
+                    self.delegate?.videosFetched(response.items!)
+                }
+ 
+                //dump(response)
             }catch{
                 print(error)
             }
