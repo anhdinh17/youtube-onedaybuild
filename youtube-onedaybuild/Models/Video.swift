@@ -23,7 +23,7 @@ struct Video: Decodable {
         
         // the right side is the key from JSON,
         // if the key match the variables we created AND the one on JSON, we don't have to specify it
-        // see "published" is the one we created but on JSON it's "publishedAt" so we have to make published = publishedAt
+        // see "published" is the one we created but on JSON it's "publishedAt" so we have to make published = publishedAt, same thing for "thumbnail"
         case published = "publishedAt"
         case title
         case description

@@ -41,10 +41,12 @@ class Model{
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 
+                // response is an instance/object of Response struct
                 let response = try decoder.decode(Response.self, from: data!)
                  
                 if response != nil {
                     // call the "videoFetched" methods of the delegate
+                    // response.items is an array of Video struct
                     self.delegate?.videosFetched(response.items!)
                 }
  
